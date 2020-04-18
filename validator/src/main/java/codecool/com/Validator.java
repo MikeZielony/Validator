@@ -37,10 +37,14 @@ public class Validator {
 
 
     public boolean isCorrect(String id) {
-        // checkLength
-        // 3 first chars are letters
-        // 6 last chars are numbers
-        // is control number correct
+
+        System.out.println("Correct length : " + checkLength(id));
+
+        System.out.println("Correct first tree letters : " + checkFirstThreeChars(id));
+
+        System.out.println("Correct 6 last chars are a numbers : " + checkLastSixChars(id));
+
+        System.out.println("Correct ID number : " + checkControlNumber(id));
         return checkLength(id) && checkFirstThreeChars(id) && checkLastSixChars(id) && checkControlNumber(id);
     }
 
@@ -70,6 +74,15 @@ public class Validator {
 
     private boolean checkControlNumber(String id) {
         int sum;
+//        System.out.println(getLetterValue(id.substring(0, 1)));
+//        System.out.println(getLetterValue(id.substring(1, 2)));
+//        System.out.println(getLetterValue(id.substring(2, 3)));
+//        System.out.println(Integer.parseInt(id.substring(3, 4)));
+//        System.out.println(Integer.parseInt(id.substring(4, 5)));
+//        System.out.println(Integer.parseInt(id.substring(5, 6)));
+//        System.out.println(Integer.parseInt(id.substring(6, 7)));
+//        System.out.println(Integer.parseInt(id.substring(8, 9)));
+
         sum = 7 * getLetterValue(id.substring(0, 1));
         sum += 3 * getLetterValue(id.substring(1, 2));
         sum += 1 * getLetterValue(id.substring(2, 3));
