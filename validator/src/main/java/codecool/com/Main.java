@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Reader reader = new Reader();
-        String id = reader.readFromFile("id.txt");
+        String id = reader.readFromFile("validator/src/main/java/codecool/com/id.txt");
 
         System.out.println(id);
 
