@@ -2,7 +2,7 @@ package codecool.com;
 
 public class Validator {
 
-    private int getLetterValue(String letter) {
+    private int getLetterValue(String letter) throws IllegalStateException {
         int value = switch (letter) {
             case "A" -> 10;
             case "B" -> 11;
@@ -48,11 +48,11 @@ public class Validator {
         return checkLength(id) && checkFirstThreeChars(id) && checkLastSixChars(id) && checkControlNumber(id);
     }
 
-    private boolean checkLength(String id) {
+    public boolean checkLength(String id) {
         return id.length() == 9;
     }
 
-    private boolean checkFirstThreeChars(String id) {
+    public boolean checkFirstThreeChars(String id) {
         for(int i =0; i< 3; i++) {
             if(getLetterValue(id.substring(i, i+1)) < 10) {
                 return false;
@@ -61,7 +61,7 @@ public class Validator {
         return true;
     }
 
-    private boolean checkLastSixChars(String id) {
+    public boolean checkLastSixChars(String id) {
 
         for(int i =3; i< 9; i++) {
             Integer n = Integer.parseInt(id.substring(i, i+1));
@@ -72,7 +72,7 @@ public class Validator {
         return true;
     }
 
-    private boolean checkControlNumber(String id) {
+    public boolean checkControlNumber(String id) {
         int sum;
 //        System.out.println(getLetterValue(id.substring(0, 1)));
 //        System.out.println(getLetterValue(id.substring(1, 2)));
